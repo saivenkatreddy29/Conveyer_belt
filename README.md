@@ -5,4 +5,5 @@ The task is to find the speed of the conveyer belt using a .svo file recorded us
 # Working
 There are 4 modules in the [src](./src) directory and main.py is the file that needs to be runned
 
-**Initialization:** 
+**Introduction:** 
+
