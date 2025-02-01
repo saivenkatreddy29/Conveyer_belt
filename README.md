@@ -57,13 +57,13 @@ ORB is fast and effecient for feature detection
 
 The keypoints and descriptors are extracted from a specific Region of Interest (ROI), which is cropped from frame using the coordinates provided.
 
-**5. Feature Matching (FLANN with RANSAC)**
+**5. Feature matching (FLANN with RANSAC)**
 
 Feature matching involves finding similarities between keypoints in two frames. 
 
-* FLANN is used to effieciently match descriptors between frames using approximate nearest neighbours search which has better compuataional effeciency than the brute-force matching
-* For each descriptor in first frame, two closest matches are found. It the distance ration between best and second best match is below 0.7(thumb rule but can be choosed differently), the match is considered reliable.
-* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporovements on filtering are discussed [Here](Descriptions/Outlier_handling.md)
+* FLANN is used to effieciently match descriptors between frames using approximate nearest neighbours search which has better compuataional effeciency than the brute-force matching.
+* For each descriptor in first frame, two closest matches are found. If the distance ration between best and second best match is below 0.7 (thumb rule but can be choosed differently), the match is considered reliable.
+* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporovements on filtering are discussed [Here](Descriptions/Outlier_handling.md).
 
 
 **6. Optical Flow(Farneback Method)**
@@ -77,12 +77,12 @@ Feature matching involves finding similarities between keypoints in two frames.
 **8. Calculating Speed**
 
 * The displacements are calculated using Euclidean distance between the corresponding 3D points.
-* The program uses median displacement to avoid ouliers
+* The program uses median displacement to avoid outliers
 * The speed is computed as by multiplying the displacment with frames per second
 
 # Handling Noise and outliers
 
-The program uses RANSAC for oulier detection in feature extraction method and in the optical flow module have implicit outlier handling by
+The program uses RANSAC for outlier detection in feature extraction method and in the optical flow module have implicit outlier handling by
 Depth Filtering: Removes invalid depth values (negative,zero and non finite)
 Median Displacement: Instad of averaging the program uses median displacement to handle outliers
 Sampling: Due to sampling the impact of noisy regions is reduced
