@@ -93,9 +93,9 @@ The program uses moving average to remove the noise in speeds. It uses the _wind
 ![Raw speed vs Moving average speed](Plots/plot.png)
 
 # Output
-The output is smoothed speed values recoded at each frame and stored in the results.csv file.
+The output is smoothed speed values recorded at each frame and stored in the _results.csv_ file.
 
-**The following image gives us the distribution of speed values every frame. The plot clearly indicates that the speed of the belt lies between 1.55 m/s to 1.56 m/s**
+**The following image gives us the distribution of speed values at every frame. The plot clearly shows that the speed of the belt lies between 1.55 m/s to 1.56 m/s**
 
 ![Distribution of speeds among frames](Plots/plot_hist_annotated.png)
 
