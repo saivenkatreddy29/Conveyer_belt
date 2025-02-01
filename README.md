@@ -19,7 +19,7 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * It is mandatory to have NVIDIA GPU recommonded GTX 2060 or higher.
 * NVIDIA CUDA Toolkit (this will be installed with ZED SDK).
 * Download the ZED SDK version 4.x from [StereoLabs website](https://www.stereolabs.com/developers).
-* The detail commands to follow are [here](./Descriptions/commands_to_install_ZED_SDK.md).
+* The detail commands to follow are [HERE](./Descriptions/commands_to_install_ZED_SDK.md).
 
 **Usage**
 
@@ -44,11 +44,11 @@ Then we setup the variables that are future used in the program. Key variables i
 * _camera_parameters_ to sotre intrinsic camera parameters.
 
 **3. Choosing Between Feature Extraction and Optical Flow:**
-The method is choosed based on input argument method. 
+The method is chosen based on input argument method. 
 * Feature extraction, ORB features are detected and matched using FLANN and RANSAC. 
-* Optical Flow, Farneback's algorithm is used to compute motion between the frames
+* Optical Flow, Farneback's algorithm is used to compute motion between the frames.
 
-Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md)
+Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md).
 
 **4. Feature Extraction (ORB Features)**
 ORB is fast and effecient for feature detection
