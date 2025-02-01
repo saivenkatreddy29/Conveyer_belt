@@ -22,3 +22,13 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * NVIDIA CUDA Toolkit(This will be installed with ZED SDK)
 * Download the ZED SDK version 4.x from [StereoLabs website](https://www.stereolabs.com/developers).
 * The detail commands to follow are [here](./Descriptions/commands_to_install_ZED_SDK.md)
+
+**Usage**
+
+To run the code, execute python main.py [args]
+The arguments provide flexibility in running the code and allow you to choose the desired mode:
+* method: Choose between feature selection and optical flow.
+* scale: Choose between True (scales) and False (does not scale).
+
+
+
