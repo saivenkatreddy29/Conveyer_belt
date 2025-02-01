@@ -1,7 +1,7 @@
 # Choosing the method to obtain the speed dynamically
 I have implemented two methods to calculate the speed
 
-**ORB Features with FLANN Matcher and RANSAC Filtering:**
+**ORB features with FLANN matcher and RANSAC filtering:**
 * This method is good when there are easily identifiable features in the frame.
 * This method is robust against noise and occlusions.
 * The performance might reduce with large scale changes in scene.
