@@ -62,25 +62,25 @@ The keypoints and descriptors are extracted from a specific Region of Interest (
 Feature matching involves finding similarities between keypoints in two frames. 
 
 * FLANN is used to effieciently match descriptors between frames using approximate nearest neighbours search which has better compuataional effeciency than the brute-force matching.
-* For each descriptor in first frame, two closest matches are found. If the distance ration between best and second best match is below 0.7 (thumb rule but can be choosed differently), the match is considered reliable.
-* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporovements on filtering are discussed [Here](Descriptions/Outlier_handling.md).
+* For each descriptor in first frame, two closest matches are found. If the distance ratio between best and second best match is below 0.7 (thumb rule but can be choose different value), the match is considered reliable.
+* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE](Descriptions/Outlier_handling.md).
 
 
-**6. Optical Flow(Farneback Method)**
-* Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel(In this case for every 20 pixels).
-* Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame(2D). Using these 2d coordinateds and depth maps we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
+**6. Optical Flow (Farneback method)**
+* Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel (in this case for every 20 pixels).
+* Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame (2D). Using these 2d coordinates and depth maps, we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
 
 **7. Converting Coordinates**
 
-* The coordinates are converted from 2D pixel to 3D world cordinates by using Intrinsic parameters(focal length and principal points)
+* The coordinates are converted from 2D pixel to 3D world cordinates by using intrinsic parameters (focal length and principal points).
 
 **8. Calculating Speed**
 
 * The displacements are calculated using Euclidean distance between the corresponding 3D points.
-* The program uses median displacement to avoid outliers
-* The speed is computed as by multiplying the displacment with frames per second
+* The program uses median displacement to avoid outliers.
+* The speed is computed by multiplying the displacment with frames per second.
 
-# Handling Noise and outliers
+# Handling noise and outliers
 
 The program uses RANSAC for outlier detection in feature extraction method and in the optical flow module have implicit outlier handling by
 Depth Filtering: Removes invalid depth values (negative,zero and non finite)
