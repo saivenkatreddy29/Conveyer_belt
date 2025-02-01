@@ -32,7 +32,7 @@ example: `python main.py -- method optical_flow -- window_size 5`
 
 # Code structure and functionality
 
-**Initialization of ZED SDK Camera:**
+**1. Initialization of ZED SDK Camera:**
 The ZED Camera is initialized using the _sl.Camera()_ object. The video path is set and camera is configured for 
 performance depth mode. If initialization fails a `RuntimeError` is raised, check the ZED setup.
 
