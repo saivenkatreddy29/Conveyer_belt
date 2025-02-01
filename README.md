@@ -23,7 +23,7 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 
 **Usage**
 
-Run the code using `python main.py [args]`
+Run the code using `python main.py [args]`.
 The arguments give you the flexibility to choose method and window in which you want to run the code.
 1) method- Choose between feature selection and optical flow
 2) window_size - Choose the window size that is used to smooth the speed values from fluctuation
