@@ -63,8 +63,22 @@ Feature matching involves finding similarities between keypoints in two frames.
 
 * FLANN is used to effieciently match descriptors between frames using approximate nearest neighbours search which has better compuataional effeciency than the brute-force matching
 * For each descriptor in first frame, two closest matches are found. It the distance ration between best and second best match is below 0.7(thumb rule but can be choosed differently), the match is considered reliable.
-* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporvements on filterering are discussed [Here](Descriptions/Outlier_handling.md)
+* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporovements on filtering are discussed [Here](Descriptions/Outlier_handling.md)
 
+
+**Optical Flow(Farneback Method)**
+* Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel(In this case for every 20 pixels).
+* Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame(2D). Using these 2d coordinateds and depth maps we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
+
+**Converting Coordinates**
+
+* The coordinates are converted from 2D pixel to 3D world cordinates by using Intrinsic parameters(focal length and principal points)
+
+**Calculating Speed**
+
+* The displacements are calculated using Euclidean distance between the corresponding 3D points.
+* The program uses median displacement to avoid ouliers
+* The speed is computed as by multiplying the displacment with frames per second
 
 
 
