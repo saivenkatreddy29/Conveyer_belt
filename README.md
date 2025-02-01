@@ -88,7 +88,7 @@ Sampling: Due to sampling the impact of noisy regions is reduced
 
 The program usess moving average to remove the noise in speeds. It uses the window_size(default 5) to minimize the effect of sudden change in the speeds and gives smoother values
 
-**The following plot gives us idea of how using moving average will help to reduce noise caused by fluctuations.** 
+**The following plot gives us idea of how using moving average will help to reduce fluctuations caused by noise.** 
 ![Raw speed vs Moving average speed](Plots/plot.png)
 
 # Output
