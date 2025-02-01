@@ -28,13 +28,13 @@ The arguments give you the flexibility to choose method and window in which you 
 1) method - Choose between _feature_selection_ and _optical_flow_
 2) window_size - Choose the _window_size_ that is used to smooth the speed values from fluctuation
 
-example: `python main -- method optical_flow -- window_size 5`
+example: `python main.py -- method optical_flow -- window_size 5`
 
-# Code Structure and functionality
+# Code structure and functionality
 
 **Initialization of ZED SDK Camera:**
-The ZED Camera is initialized using the sl.Camera() object. The video path is set and camera is configured for 
-performance depth mode. If Initialization fails a RuntimeError is raised
+The ZED Camera is initialized using the _sl.Camera()_ object. The video path is set and camera is configured for 
+performance depth mode. If initialization fails a `RuntimeError` is raised, check the ZED setup.
 
 **Setting Up Variables:**
 Then we setup the variables that are future used in the program. Key variables include:
