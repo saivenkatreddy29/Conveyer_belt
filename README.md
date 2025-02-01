@@ -19,7 +19,7 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * It is mandatory to have an NVIDIA GPU, with a recommended model of GTX 2060 or higher
 * NVIDIA CUDA Toolkit (this will be installed with ZED SDK).
 * Download the ZED SDK version 4.x from [StereoLabs website](https://www.stereolabs.com/developers).
-* The detail commands to follow are [HERE](./Descriptions/commands_to_install_ZED_SDK.md).
+* The detailed commands to follow are [HERE](./Descriptions/commands_to_install_ZED_SDK.md).
 
 **Usage:**
 
@@ -28,7 +28,7 @@ The arguments give you the flexibility to choose method and window in which you 
 1) method - Choose between _feature_selection_ and _optical_flow_
 2) window_size - Choose the _window_size_ that is used to smooth the speed values from fluctuation
 
-**Example:** `python main.py -- method optical_flow -- window_size 5`
+**Example:** `python main.py --method optical_flow --window_size 5`
 
 # Code structure and functionality
 
@@ -41,17 +41,17 @@ Then we setup the variables that are future used in the program. Key variables i
 * _image_cam,_ _depth_cam_ for storing frame and depth data.
 * _prev_depth_map_ to store previous frame's depthmap.
 * _speed_queue_ for storing speed values for smoothing.
-* _camera_parameters_ to sotre intrinsic camera parameters.
+* _camera_parameters_ to store intrinsic camera parameters.
 
 **3. Choosing Between Feature Extraction and Optical Flow:**
-The method is chosen based on input argument method. 
-* Feature extraction, ORB features are detected and matched using FLANN and RANSAC. 
+The method is chosen based on input argument _method_. 
+* In feature extraction, ORB features are detected and matched using FLANN and RANSAC. 
 * Optical Flow, Farneback's algorithm is used to compute motion between the frames.
 
 Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md).
 
 **4. Feature Extraction (ORB features):**
-ORB is fast and effecient for feature detection
+ORB is fast and efficient for feature detection.
 * Fast Keypoint detection: Identifies the keypoints in image by comparing pixel intensities in circular pattern.
 * BRIEF Descriptor: Computes binary descriptors for each keypoint by comparing pixel intensities in a predefined pattern around the keypoint.
 
@@ -61,9 +61,9 @@ The keypoints and descriptors are extracted from a specific Region of Interest (
 
 Feature matching involves finding similarities between keypoints in two frames. 
 
-* FLANN is used to effieciently match descriptors between frames using approximate nearest neighbours search which has better compuataional effeciency than the brute-force matching.
-* For each descriptor in first frame, two closest matches are found. If the distance ratio between best and second best match is below 0.7 (thumb rule but can be choose different value), the match is considered reliable.
-* RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE](Descriptions/Outlier_handling.md).
+* FLANN is used to efficiently match descriptors between frames using an approximate nearest neighbors search, which has better computational efficiency than brute-force matching.
+* For each descriptor in first frame, two closest matches are found. If the distance ratio between the best and second-best match is below 0.7 (a rule of thumb, but a different value can be chosen), the match is considered reliable.
+* RANSAC is used to filter out outliers by estimating the geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE](Descriptions/Outlier_handling.md).
 
 
 **6. Optical Flow (Farneback method):**
