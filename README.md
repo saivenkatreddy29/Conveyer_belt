@@ -97,3 +97,13 @@ The output is smoothed speed values recoded at each frame and stored in the resu
 **The following image gives us the distribution of speed values every frame. The plot clearly indicates that the speed of the belt lies between 1.55 m/s to 1.56 m/s**
 
 ![Distribution of speeds among frames](Plots/plot_hist_annotated.png)
+
+# Future Developments
+
+* **Deep Learning based Feature Extractors:** We can use learned features from pre-trained models such as D2-Net for better feature extraction and matching
+
+* **Consistency Checks:** Comparing the forward and backward optical flow to remove the inconsistent motion vectors
+
+* **Parallel Processing and Reduced resolution:** Using multi-threading or multiprocessing to handle frame processing can increase the speed of the program. Decreasing the resolution of the frames can also improve the computation speed.
+
+* **Kalman Filter:** We can apply kalman filter to smooth the speeds and reduce noise. Currently moving average is used but Kalman filter can provide significant improvements in terms of accuracy, responsiveness, and adaptability.
