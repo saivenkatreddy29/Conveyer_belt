@@ -67,33 +67,33 @@ Feature matching involves finding similarities between keypoints in two frames.
 
 
 **6. Optical Flow (Farneback method):**
-* Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel (in this case for every 20 pixels).
-* Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame (2D). Using these 2d coordinates and depth maps, we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
+* Optical flow is used to estimate the motion of an object between two consecutive frames with a short time difference by calculating the displacement vector for each pixel (in this case, for every 20 pixels).
+* The displacement vector (dx, dy) is retrieved from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in the next frame (2D). Using these 2d coordinates and depth maps, we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
 
 **7. Converting Coordinates:**
 
-* The coordinates are converted from 2D pixel to 3D world cordinates by using intrinsic parameters (focal length and principal points).
+* The coordinates are converted from 2D pixel coordinates to 3D world coordinates using intrinsic parameters (focal length and principal points).
 
 **8. Calculating Speed:**
 
 * The displacements are calculated using Euclidean distance between the corresponding 3D points.
 * The program uses median displacement to avoid outliers.
-* The speed is computed by multiplying the displacment with frames per second.
+* The speed is computed by multiplying the displacement by the frames per second.
 
 # Handling noise and outliers
 
-The program uses RANSAC for outlier detection in feature extraction method and in the optical flow module have implicit outlier handling by:
+The program uses RANSAC for outlier detection in the feature extraction method, and the optical flow module has implicit outlier handling by:
 * Depth Filtering: Removes invalid depth values (negative, zero and non-finite).
 * Median Displacement: Instead of averaging the program uses median displacement to handle outliers.
 * Sampling: Due to sampling the impact of noisy regions are reduced.
 
-The program uses moving average to remove the noise in speeds. It uses the _window_size_ (default 5) to minimize the effect of sudden change in the speeds and gives smoother values.
+The program uses a moving average to remove noise in speed measurements. It uses the _window_size_ (default: 5) to minimize the effect of sudden changes in speed and to provide smoother values.
 
 **The following plot gives us idea of how using moving average will help to reduce fluctuations caused by noise.** 
 ![Raw speed vs Moving average speed](Plots/plot.png)
 
 # Output
-The output is smoothed speed values recorded at each frame and stored in the _results.csv_ file.
+The output consists of smoothed speed values recorded at each frame and stored in the _results.csv_ file.
 
 **The following image gives us the distribution of speed values at every frame. The plot clearly shows that the speed of the belt lies between 1.55 m/s to 1.56 m/s**
 
@@ -101,10 +101,10 @@ The output is smoothed speed values recorded at each frame and stored in the _re
 
 # Future Developments
 
-* **Deep Learning based feature extractors:** We can use learned features from pre-trained models such as D2-Net for better feature extraction and matching.
+* **Deep learning-based feature extractors:** We can use learned features from pre-trained models such as D2-Net for better feature extraction and matching.
 
 * **Consistency checks:** Comparing the forward and backward optical flow to remove the inconsistent motion vectors.
 
-* **Parallel processing and reduced resolution:** Using multi-threading or multiprocessing to handle frame processing can increase the speed of the program. Decreasing the resolution of the frames can also improve the computational speed.
+* **Parallel processing and reduced resolution:** Using multithreading or multiprocessing to handle frame processing can increase the program's speed. Decreasing the resolution of the frames can also improve the computational speed.
 
-* **Kalman Filter:** We can apply kalman filter to smooth the speeds and reduce noise. Currently moving average is used but Kalman Filter can provide significant improvements in terms of accuracy, responsiveness, and adaptability.
+* **Kalman Filter:** We can apply kalman filter to smooth the speeds and reduce noise.Currently, a moving average is used, but a Kalman filter can provide significant improvements in terms of accuracy, responsiveness, and adaptability.
