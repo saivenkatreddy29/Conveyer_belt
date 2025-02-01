@@ -50,12 +50,12 @@ The method is chosen based on input argument method.
 
 Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md).
 
-**4. Feature Extraction (ORB Features)**
+**4. Feature Extraction (ORB features)**
 ORB is fast and effecient for feature detection
-* Fast Keypoint Detection: Identifies the keypoints in image by comparing pixel intensities in circulat pattern.
+* Fast Keypoint detection: Identifies the keypoints in image by comparing pixel intensities in circular pattern.
 * BRIEF Descriptor: Computes binary descriptors for each keypoint by comparing pixel intensities in a predefined pattern around the keypoint.
 
-The keypoints and descriptos are extracted from a specific Region of Interest, which is cropped from frame using the coordinates provided
+The keypoints and descriptors are extracted from a specific Region of Interest (ROI), which is cropped from frame using the coordinates provided.
 
 **5. Feature Matching (FLANN with RANSAC)**
 
