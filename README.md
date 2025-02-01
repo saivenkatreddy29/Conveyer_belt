@@ -6,7 +6,7 @@ The task is to find the speed of the conveyer belt using a _.svo_ file recorded 
 **Introduction:** 
 This project aims to dynamically determine the speed of a conveyor belt using SVO recordings captured by a ZED Stereo Camera. The camera records the moving belt at 2X720p resolution, with 60 frames per second. Equipped with two or more lenses, each with a separate image sensor, the stereo camera mimics human vision, enabling it to capture 3D images. The project employs both feature extraction and optical flow methods for this task.
 
-**Requirements**
+**Requirements:**
 * Python 3.6 or higher
 * OpenCV -- pip install opencv-python
 * NumPy -- pip install numpy
@@ -14,21 +14,21 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * Matplotlib -- pip install matplotlib
 * Scipy -- pip install scipy
 
-**Installation**
+**Installation:**
 * The device should have at least 4GB RAM, and the recommended amount is 8GB.
 * It is mandatory to have an NVIDIA GPU, with a recommended model of GTX 2060 or higher
 * NVIDIA CUDA Toolkit (this will be installed with ZED SDK).
 * Download the ZED SDK version 4.x from [StereoLabs website](https://www.stereolabs.com/developers).
 * The detail commands to follow are [HERE](./Descriptions/commands_to_install_ZED_SDK.md).
 
-**Usage**
+**Usage:**
 
 Run the code using `python main.py [args]`.
 The arguments give you the flexibility to choose method and window in which you want to run the code.
 1) method - Choose between _feature_selection_ and _optical_flow_
 2) window_size - Choose the _window_size_ that is used to smooth the speed values from fluctuation
 
-example: `python main.py -- method optical_flow -- window_size 5`
+**Example:** `python main.py -- method optical_flow -- window_size 5`
 
 # Code structure and functionality
 
@@ -50,14 +50,14 @@ The method is chosen based on input argument method.
 
 Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md).
 
-**4. Feature Extraction (ORB features)**
+**4. Feature Extraction (ORB features):**
 ORB is fast and effecient for feature detection
 * Fast Keypoint detection: Identifies the keypoints in image by comparing pixel intensities in circular pattern.
 * BRIEF Descriptor: Computes binary descriptors for each keypoint by comparing pixel intensities in a predefined pattern around the keypoint.
 
 The keypoints and descriptors are extracted from a specific Region of Interest (ROI), which is cropped from frame using the coordinates provided.
 
-**5. Feature matching (FLANN with RANSAC)**
+**5. Feature matching (FLANN with RANSAC):**
 
 Feature matching involves finding similarities between keypoints in two frames. 
 
@@ -66,15 +66,15 @@ Feature matching involves finding similarities between keypoints in two frames.
 * RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE](Descriptions/Outlier_handling.md).
 
 
-**6. Optical Flow (Farneback method)**
+**6. Optical Flow (Farneback method):**
 * Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel (in this case for every 20 pixels).
 * Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame (2D). Using these 2d coordinates and depth maps, we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
 
-**7. Converting Coordinates**
+**7. Converting Coordinates:**
 
 * The coordinates are converted from 2D pixel to 3D world cordinates by using intrinsic parameters (focal length and principal points).
 
-**8. Calculating Speed**
+**8. Calculating Speed:**
 
 * The displacements are calculated using Euclidean distance between the corresponding 3D points.
 * The program uses median displacement to avoid outliers.
