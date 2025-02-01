@@ -38,10 +38,10 @@ performance depth mode. If initialization fails a `RuntimeError` is raised, chec
 
 **2. Setting Up Variables:**
 Then we setup the variables that are future used in the program. Key variables include:
-* image_cam, depth_cam for stroing frame and depth data
-* prev_depth_map to store previous frame's depthmap
-* speed_queue for storing speed values for smoothing
-* camera_parameters to sotre intrinsic camera parameters
+* _image_cam,_ _depth_cam_ for storing frame and depth data.
+* _prev_depth_map_ to store previous frame's depthmap.
+* _speed_queue_ for storing speed values for smoothing.
+* _camera_parameters_ to sotre intrinsic camera parameters.
 
 **3. Choosing Between Feature Extraction and Optical Flow:**
 The method is choosed based on input argument method. 
