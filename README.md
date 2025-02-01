@@ -83,9 +83,9 @@ Feature matching involves finding similarities between keypoints in two frames.
 # Handling noise and outliers
 
 The program uses RANSAC for outlier detection in feature extraction method and in the optical flow module have implicit outlier handling by
-Depth Filtering: Removes invalid depth values (negative,zero and non finite)
-Median Displacement: Instad of averaging the program uses median displacement to handle outliers
-Sampling: Due to sampling the impact of noisy regions is reduced
+* Depth Filtering: Removes invalid depth values (negative,zero and non finite)
+* Median Displacement: Instad of averaging the program uses median displacement to handle outliers
+* Sampling: Due to sampling the impact of noisy regions is reduced
 
 The program usess moving average to remove the noise in speeds. It uses the window_size(default 5) to minimize the effect of sudden change in the speeds and gives smoother values
 
