@@ -1,6 +1,5 @@
 # Conveyer_belt
 
-The task is to find the speed of the conveyer belt using a .svo file recorded using ZED SDK Camera module. The following are the steps that are used to complete the task
 
 # Working
 There are 4 modules in the [src](./src) directory and main.py is the file that needs to be runned
@@ -24,10 +23,11 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * The detail commands to follow are [here](./Descriptions/commands_to_install_ZED_SDK.md)
 
 **Usage**
-	Run the code using `python main.py [args]`
-	The arguments give you the flexibility to choose method and window in which you want to run the code.
-	1) method- Choose between feature selection and optical flow
-	2) window_size - Choose the window size that is used to smooth the speed values from fluctuation
+
+Run the code using `python main.py [args]`
+The arguments give you the flexibility to choose method and window in which you want to run the code.
+1) method- Choose between feature selection and optical flow
+2) window_size - Choose the window size that is used to smooth the speed values from fluctuation
 
 
 # Code Structure and functionality
