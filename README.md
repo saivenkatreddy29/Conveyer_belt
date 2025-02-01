@@ -36,28 +36,28 @@ example: `python main.py -- method optical_flow -- window_size 5`
 The ZED Camera is initialized using the _sl.Camera()_ object. The video path is set and camera is configured for 
 performance depth mode. If initialization fails a `RuntimeError` is raised, check the ZED setup.
 
-**Setting Up Variables:**
+**2. Setting Up Variables:**
 Then we setup the variables that are future used in the program. Key variables include:
 * image_cam, depth_cam for stroing frame and depth data
 * prev_depth_map to store previous frame's depthmap
 * speed_queue for storing speed values for smoothing
 * camera_parameters to sotre intrinsic camera parameters
 
-**Choosing Between Feature Extraction and Optical Flow:**
+**3. Choosing Between Feature Extraction and Optical Flow:**
 The method is choosed based on input argument method. 
 * Feature extraction, ORB features are detected and matched using FLANN and RANSAC. 
 * Optical Flow, Farneback's algorithm is used to compute motion between the frames
 
 Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md)
 
-**Feature Extraction (ORB Features)**
+**4. Feature Extraction (ORB Features)**
 ORB is fast and effecient for feature detection
 * Fast Keypoint Detection: Identifies the keypoints in image by comparing pixel intensities in circulat pattern.
 * BRIEF Descriptor: Computes binary descriptors for each keypoint by comparing pixel intensities in a predefined pattern around the keypoint.
 
 The keypoints and descriptos are extracted from a specific Region of Interest, which is cropped from frame using the coordinates provided
 
-**Feature Matching (FLANN with RANSAC)**
+**5. Feature Matching (FLANN with RANSAC)**
 
 Feature matching involves finding similarities between keypoints in two frames. 
 
@@ -66,15 +66,15 @@ Feature matching involves finding similarities between keypoints in two frames.
 * RANSAC is used to filter out outliers by estimating geometric transformation between matched keypoints. More details about RANSAC and imporovements on filtering are discussed [Here](Descriptions/Outlier_handling.md)
 
 
-**Optical Flow(Farneback Method)**
+**6. Optical Flow(Farneback Method)**
 * Optical flow is used to estimate the motion of object between two consecutive frames with quick time difference by calculating the displacment vector for each pixel(In this case for every 20 pixels).
 * Displacement vector (dx,dy) is retrived from the flow field. Adding the displacement vectors to the current pixels will give the location of the pixel in next frame(2D). Using these 2d coordinateds and depth maps we will find the 3D coordinates of the two pixels and then finds the displacement in 3D.
 
-**Converting Coordinates**
+**7. Converting Coordinates**
 
 * The coordinates are converted from 2D pixel to 3D world cordinates by using Intrinsic parameters(focal length and principal points)
 
-**Calculating Speed**
+**8. Calculating Speed**
 
 * The displacements are calculated using Euclidean distance between the corresponding 3D points.
 * The program uses median displacement to avoid ouliers
