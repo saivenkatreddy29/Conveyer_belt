@@ -17,7 +17,7 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 **Installation**
 * The device should have atleast 4GB RAM and recommonded is 8GB
 * It is mandatory to have NVIDIA GPU recommonded GTX 2060 or higher
-* NVIDIA CUDA Toolkit(This will be installed with ZED SDK)
+* NVIDIA CUDA Toolkit (This will be installed with ZED SDK)
 * Download the ZED SDK version 4.x from [StereoLabs website](https://www.stereolabs.com/developers).
 * The detail commands to follow are [here](./Descriptions/commands_to_install_ZED_SDK.md)
 
