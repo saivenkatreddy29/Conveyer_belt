@@ -28,6 +28,7 @@ The arguments give you the flexibility to choose method and window in which you 
 1) method- Choose between feature selection and optical flow
 2) window_size - Choose the window size that is used to smooth the speed values from fluctuation
 
+example: 'python main -- method optical_flow -- window_size 5'
 
 # Code Structure and functionality
 
