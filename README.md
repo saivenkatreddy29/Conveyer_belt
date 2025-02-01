@@ -10,9 +10,9 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * Python 3.6 or higher
 * OpenCV -- pip install opencv-python
 * NumPy -- pip install numpy
-* pandas -- pip install pandas
+* Pandas -- pip install pandas
 * Matplotlib -- pip install matplotlib
-* scipy -- pip install scipy
+* Scipy -- pip install scipy
 
 **Installation**
 * The device should have atleast 4GB RAM and recommonded is 8GB
