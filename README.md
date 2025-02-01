@@ -24,11 +24,37 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 * The detail commands to follow are [here](./Descriptions/commands_to_install_ZED_SDK.md)
 
 **Usage**
+	Run the code using python main.py [args]
+	The arguments give you the flexibility to choose method and window in which you want to run the code.
+	1) method- Choose between feature selection and optical flow
+	2) window_size - Choose the window size that is used to smooth the speed values from fluctuation
 
-To run the code, execute python main.py [args]
-The arguments provide flexibility in running the code and allow you to choose the desired mode:
-* method: Choose between feature selection and optical flow.
-* scale: Choose between True (scales) and False (does not scale).
+
+# Code Structure and functionality
+
+**Initialization of ZED SDK Camera:**
+The ZED Camera is initialized using the sl.Camera() object. The video path is set and camera is configured for 
+performance depth mode. If Initialization fails a RuntimeError is raised
+
+**Setting Up Variables:**
+Then we setup the variables that are future used in the program. Key variables include:
+* image_cam, depth_cam for stroing frame and depth data
+* prev_depth_map to store previous frame's depthmap
+* speed_queue for storing speed values for smoothing
+* camera_parameters to sotre intrinsic camera parameters
+
+**Choosing Between Feature Extraction and Optical Flow:**
+The method is choosed based on input argument method. 
+* Feature extraction, ORB features are detected and matched using FLANN and RANSAC. 
+* Optical Flow, Farneback's algorithm is used to compute motion between the frames
+
+Detailed explaination about when to use which method and future developement is discussed [HERE](Descriptions/Choosing_method.md)
+
+
+
+
+
+
 
 
 
