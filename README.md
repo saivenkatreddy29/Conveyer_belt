@@ -103,6 +103,13 @@ The output consists of smoothed speed values recorded at each frame and stored i
 
 ![Distribution of speeds among frames](Plots/plot_hist_annotated.png)
 
+# Observations
+As the program implemented two methods for speed detection, I have made few observations about how each method is working.
+![Comparision of two methods](Plots/comparision_plot.png)
+
+In the plot we can see that optical flow has smoother curve that feature detection even without using dedicated outlier detection techniques. This is because optical flow computes motion vectors for all pixels (or a dense subset, e.g., every 20 pixels), providing a continuous representation of motion. In contrast, feature extraction relies on sparse keypoints, which can lead to noisier estimates if keypoints are unevenly distributed or mismatched. This doesn't mean that it is always reccomonded to use optical flow because of it's computational cost, as we increase the frequency of comparisions the program requires more computational resources. So, considering this tradeoff the choosing of method should be done.
+For example, optical flow is ideal for scenarios requiring smooth motion estimation, while feature extraction is better suited for resource-constrained environments.
+
 # Future Developments
 
 * **Deep learning-based feature extractors:** We can use learned features from pre-trained models such as D2-Net for better feature extraction and matching.
