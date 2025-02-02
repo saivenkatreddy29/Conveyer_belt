@@ -26,13 +26,13 @@ After installation of ZED SDK follow the commands:
 * `git clone https://github.com/saivenkatreddy29/conveyor_belt_speed.git`
 * `cd conveyor_belt_speed`
 * `pip install -r requirements.txt`
-* `python main.py [args]`
+* `python3 main.py [args]`
 
 The arguments give you the flexibility to choose method and window in which you want to run the code.
 1) method - Choose between _feature_selection_ and _optical_flow_
 2) window_size - Choose the _window_size_ that is used to smooth the speed values from fluctuation
 
-**Example:** `python main.py --method optical_flow --window_size 5`
+**Example:** `python3 main.py --method optical_flow --window_size 5`
 
 # Code structure and functionality
 
