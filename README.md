@@ -24,6 +24,7 @@ This project aims to dynamically determine the speed of a conveyor belt using SV
 **Usage:**
 After installation of ZED SDK follow the commands:
 * `git clone https://github.com/saivenkatreddy29/conveyor_belt_speed.git`
+* `cd conveyor_belt_speed`
 * `pip install requirements.txt`
 * `python main.py [args]`
 
