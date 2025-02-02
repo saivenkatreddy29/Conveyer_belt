@@ -67,7 +67,7 @@ Feature matching involves finding similarities between keypoints in two frames.
 
 * FLANN is used to efficiently match descriptors between frames using an approximate nearest neighbors search, which has better computational efficiency than brute-force matching.
 * For each descriptor in first frame, two closest matches are found. If the distance ratio between the best and second-best match is below 0.7 (a rule of thumb, but a different value can be chosen), the match is considered reliable.
-* RANSAC is used to filter out outliers by estimating the geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE](Descriptions/Outlier_handling.md).
+* RANSAC is used to filter out outliers by estimating the geometric transformation between matched keypoints. More details about RANSAC and improvements on filtering are discussed [HERE]().
 
 
 **6. Optical Flow (Farneback method):**
