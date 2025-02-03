@@ -33,7 +33,7 @@ The arguments give you the flexibility to choose method and window in which you 
 2) window_size - Choose the _window_size_ that is used to smooth the speed values from fluctuation
 
 **Example:** `python3 main.py --method optical_flow --window_size 5`
-
+Then after execution you can see a results.csv file with speed values logged and also a raw file with the method name to see raw speeds.
 # Code structure and functionality
 
 **1. Initialization of ZED SDK Camera:**
