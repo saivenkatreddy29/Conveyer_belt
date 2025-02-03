@@ -49,7 +49,7 @@ def extract_features(frame, roi):
         tuple: Contains:
             - keypoints (list): Detected ORB keypoints in the ROI
             - descriptors (numpy.ndarray): ORB descriptors for the keypoints
-            - roi_frame (n  umpy.ndarray): Cropped region of interest
+            - roi_frame (numpy.ndarray): Cropped region of interest
     """
     x, y, w, h = roi
     roi_frame = frame[y:y+h, x:x+w]
