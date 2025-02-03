@@ -2,7 +2,7 @@ import numpy as np
 import pyzed.sl as sl
 
 
-# Convert 2D to 3D with camera parameters (unchanged)
+
 def convert_2d_to_3d(x, y, z, camera_params):
     """
     Convert 2D image coordinates and depth to 3D world coordinates using camera parameters.
@@ -33,7 +33,7 @@ def convert_2d_to_3d(x, y, z, camera_params):
     Z = z
 
     return X, Y, Z
-# Get 3D coordinates from depth map with boundary checks and depth validation
+
 def get_valid_3d_pairs(src_kp, dst_kp, src_depth_map, dst_depth_map, camera_params, roi_offset):
 
     """
