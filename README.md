@@ -120,3 +120,5 @@ For example, optical flow is ideal for scenarios requiring smooth motion estimat
 * **Parallel processing and reduced resolution:** Using multithreading or multiprocessing to handle frame processing can increase the program's speed. Decreasing the resolution of the frames can also improve the computational speed.
 
 * **Kalman Filter:** We can apply kalman filter to smooth the speeds and reduce noise.Currently, a moving average is used, but a Kalman filter can provide significant improvements in terms of accuracy, responsiveness, and adaptability.
+
+* **Lucas-Kanade optical flow:** The speed can be further improved by two methods: either by decreasing the pixel comparisons in the Farnebäck method or by using sparse optical flow methods such as Lucas-Kanade.
